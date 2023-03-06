@@ -8,19 +8,27 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: |
-          touch Apps.tar.gz
-          tar --exclude=Apps.tar.gz -zcvf Apps.tar.gz ./
+          tar -zcvf Apps.tar.gz ./
+      # - name: Create Release
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      #   with:
+      #     tag_name: "test-tag-name"
+      #     release_name: Release "test-release"
+      #     body: |
+      #       Changes in this Release
+      #       - First Change
+      #       - Second Change
+
+      #     draft: false
+      #     prerelease: false
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        uses: djnicholson/release-action@v2.11
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag_name: "test-tag-name"
           release_name: Release "test-release"
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
+          asset-name: 'Apps.tar.gz'
+          file: './Apps.tar.gz'
