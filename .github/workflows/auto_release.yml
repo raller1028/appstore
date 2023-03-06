@@ -7,23 +7,15 @@ jobs:
   releaser:
     runs-on: ubuntu-22.04
     steps:
-      - run: |
-          tar -zcvf Apps.tar.gz ./ --warning=no-file-changed
-      # - name: Create Release
-      #   id: create_release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-      #   with:
-      #     tag_name: "test-tag-name"
-      #     release_name: Release "test-release"
-      #     body: |
-      #       Changes in this Release
-      #       - First Change
-      #       - Second Change
-
-      #     draft: false
-      #     prerelease: false
+      - name: Compress action step
+        uses: a7ul/tar-action@v1.1.0
+        id: compress
+        with:
+          command: c
+          cwd: ./Apps
+          files: |
+            *
+          outPath: Apps.tar.gz
       - name: Create Release
         uses: djnicholson/release-action@v2.11
         with:
