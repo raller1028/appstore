@@ -28,7 +28,7 @@ jobs:
       - name: Create Release
         uses: djnicholson/release-action@v2.11
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: "test-tag-name"
           release_name: Release "test-release"
           asset-name: 'Apps.tar.gz'
