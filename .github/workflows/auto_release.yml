@@ -9,11 +9,17 @@ jobs:
     steps:
       - run: |
           tar -zcvf Apps.tar.gz ./
-      - name: create_release
-        uses: actions/create-release@latest
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-            tag_name: "test-tag-name"
-            release_name: "test-release"
-            body: 发布的内容
-            draft: false
-            prerelease: true
+          tag_name: "test-tag-name"
+          release_name: Release "test-release"
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: false
