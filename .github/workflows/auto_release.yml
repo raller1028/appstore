@@ -12,7 +12,6 @@ jobs:
         id: compress
         with:
           command: c
-          cwd: ./
           files: |
             ./Apps
           outPath: Apps.tar.gz
