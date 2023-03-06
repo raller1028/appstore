@@ -7,6 +7,7 @@ jobs:
   releaser:
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@master
       - name: Compress action step
         uses: a7ul/tar-action@v1.1.0
         id: compress
