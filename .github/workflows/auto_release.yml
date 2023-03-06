@@ -1,0 +1,21 @@
+name: auto_release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  releaser:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: |
+          tar -zcvf CasaOS-Appstore.tar.gz build
+      - name: create_release
+        uses: actions/create-release@latest
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            tag_name: "test-tag-name"
+            release_name: "test-release"
+            body: 发布的内容
+            draft: false
+            prerelease: true
