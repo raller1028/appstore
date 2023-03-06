@@ -8,12 +8,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: |
-          tar -zcvf CasaOS-Appstore.tar.gz build
+          tar -zcvf CasaOS-Appstore.tar.gz
       - name: create_release
         uses: actions/create-release@latest
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
+        with:
             tag_name: "test-tag-name"
             release_name: "test-release"
             body: 发布的内容
