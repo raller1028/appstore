@@ -29,7 +29,7 @@ jobs:
         uses: djnicholson/release-action@v2.11
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: 'test-tag-name1'
-          release_name: 'test-release1'
+          tag-name: 'test-tag-name'
+          release-name: 'test-release'
           asset-name: 'Apps.tar.gz'
           file: './Apps.tar.gz'
