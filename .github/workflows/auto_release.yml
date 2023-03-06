@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: |
-          touch Apps.tar.gz
-          tar --exclude=Apps.tar.gz -zcvf Apps.tar.gz ./
+          tar --warning=no-file-changed -zcvf Apps.tar.gz ./
       # - name: Create Release
       #   id: create_release
       #   uses: actions/create-release@v1
