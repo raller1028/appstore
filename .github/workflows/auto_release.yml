@@ -12,9 +12,9 @@ jobs:
         id: compress
         with:
           command: c
-          cwd: ./Apps
+          cwd: ./
           files: |
-            *
+            ./Apps
           outPath: Apps.tar.gz
       - name: Create Release
         uses: djnicholson/release-action@v2.11
