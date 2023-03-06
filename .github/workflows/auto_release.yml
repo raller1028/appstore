@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: |
-          tar -zcvf CasaOS-Appstore.tar.gz
+          tar -zcvf CasaOS-Appstore.tar.gz ./
       - name: create_release
         uses: actions/create-release@latest
         with:
